@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Main Activity -->
+    <string name="app_name">StudyTimer</string>
+    <string name="action_settings">Settings</string>
+    <string name="StartButton">Hit the Books!</string>
+    <string name="EditSubjects">Edit Subjects</string>
+    <string name="ViewResults">View Results</string>
+
+    <!-- Timer -->
+    <string name="Countdown">00:12:37</string>
+    <string name="ChangeSubject">Change Subject</string>
+    <string name="Pause">Pause</string>
+    <string name="Stop">Stop</string>
+
+    <!-- Results -->
+    <string name="Week">This Week</string>
+    <string name="Results">Results</string>
+
+    <!-- EditSubjects -->
+    <string name="CreateNewSubject">Create New Subject</string>
+
+    <!-- Add Subject -->
+    <string name="Done">Add Subject</string>
+    <string name="Color">Colors Here</string>
+    <string name="Icon">Icons Here</string>
+    <string name="SubjectName">Subject Name</string>
+    <string name="title_activity_timer_page">TimerPage</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_test">TestActivity</string>
+
+</resources>
