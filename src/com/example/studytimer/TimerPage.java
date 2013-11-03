@@ -1,12 +1,14 @@
 package com.example.studytimer;
 
-import android.os.Bundle;
+import android.annotation.TargetApi;
 import android.app.Activity;
+import android.os.Build;
+import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.support.v4.app.NavUtils;
-import android.annotation.TargetApi;
-import android.os.Build;
+import android.view.View;
+import android.widget.Chronometer;
 
 public class TimerPage extends Activity {
 	@Override
@@ -50,5 +52,12 @@ public class TimerPage extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	public void startChronometer(View view) {
+        ((Chronometer) findViewById(R.id.chronometer1)).start();
+    }
 
+    public void stopChronometer(View view) {
+        ((Chronometer) findViewById(R.id.chronometer1)).stop();
+    }
+ 
 }
