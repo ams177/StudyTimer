@@ -29,5 +29,8 @@
     <string name="title_activity_timer_page">TimerPage</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_test">TestActivity</string>
+    <string name="title_activity_edit_subjects">EditSubjects</string>
+    <string name="title_activity_view_results">ViewResults</string>
+    <string name="title_activity_create_new_subject">CreateNewSubject</string>
 
 </resources>

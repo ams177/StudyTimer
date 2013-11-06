@@ -9,6 +9,15 @@
     android:paddingTop="@dimen/activity_vertical_margin" >
 
     <Button
+        android:id="@+id/button1"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:background="@android:color/white"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="1dp"
+        android:text="@string/Results" />
+
+    <Button
         android:id="@+id/button2"
         android:layout_width="280dp"
         android:layout_height="50dp"
@@ -17,8 +26,8 @@
         android:layout_below="@+id/button1"
         android:layout_marginTop="1dp"
         android:text="@string/Week" />
-
-       <ImageButton
+    
+    <ImageButton
         android:id="@+id/button3"
         android:layout_width="280dp"
         android:layout_height="350dp"
@@ -26,14 +35,5 @@
         android:layout_centerHorizontal="true"
         android:src="@drawable/bar_graph"
         android:contentDescription="@string/Week" />
-
-       <Button
-           android:id="@+id/button1"
-           android:layout_width="280dp"
-           android:layout_height="50dp"
-           android:layout_alignLeft="@+id/button3"
-           android:layout_alignParentTop="true"
-           android:background="@android:color/white"
-           android:text="@string/Results" />
 
 </RelativeLayout>

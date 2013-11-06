@@ -34,6 +34,30 @@
             android:name="com.example.studytimer.TestActivity"
             android:label="@string/title_activity_test" >
         </activity>
+        <activity
+            android:name="com.example.studytimer.EditSubjects"
+            android:label="@string/title_activity_edit_subjects"
+            android:parentActivityName="com.example.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.example.studytimer.ViewResults"
+            android:label="@string/title_activity_view_results"
+            android:parentActivityName="com.example.studytimer.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.studytimer.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.example.studytimer.CreateNewSubject"
+            android:label="@string/title_activity_create_new_subject"
+            android:parentActivityName="com.example.studytimer.EditSubjects" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.studytimer.EditSubjects" />
+        </activity>
     </application>
 
 </manifest>

@@ -9,35 +9,37 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <Button
+    <ImageButton
         android:id="@+id/button1"
         android:layout_width="280dp"
         android:layout_height="200dp"
-        android:background="@android:color/white"
+        android:src="@drawable/hit_the_books2"
         android:layout_centerHorizontal="true"
-        android:text="@string/StartButton"
+        android:contentDescription="@string/StartButton"
         android:typeface="sans" 
         android:onClick="startTimer" />
 
    
-    <Button
+    <ImageButton
         android:id="@+id/button2"
         android:layout_width="280dp"
         android:layout_height="50dp"
-        android:background="@android:color/white"
+        android:src="@drawable/edit_subjects"
         android:layout_below="@+id/button1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="@string/EditSubjects" />
+        android:contentDescription="@string/EditSubjects"
+        android:onClick="editSubjects" />
 
-    <Button
+    <ImageButton
         android:id="@+id/button3"
         android:layout_width="280dp"
         android:layout_height="50dp"
-        android:background="@android:color/white"
+        android:src="@drawable/view_results"
         android:layout_alignRight="@+id/button2"
         android:layout_below="@+id/button2"
         android:layout_marginTop="20dp"
-        android:text="@string/ViewResults" />
+        android:contentDescription="@string/ViewResults" 
+        android:onClick="viewResults" />
 
 </RelativeLayout>

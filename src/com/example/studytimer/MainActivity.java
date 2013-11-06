@@ -26,4 +26,13 @@ public class MainActivity extends Activity {
 		startActivity(intent); 
 	}
 	
+	public void editSubjects(View view) {
+		Intent intent = new Intent(this, EditSubjects.class);
+		startActivity(intent);
+	}
+	
+	public void viewResults(View view) {
+		Intent intent = new Intent(this, ViewResults.class);
+		startActivity(intent);
+	}
 }
