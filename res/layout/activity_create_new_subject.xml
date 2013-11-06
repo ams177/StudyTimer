@@ -8,15 +8,14 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin" >
 
-    <Button
+    <ImageView
         android:id="@+id/button1"
         android:layout_width="280dp"
         android:layout_height="50dp"
-        android:background="@android:color/white"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:text="@string/CreateNewSubject" />
-
+        android:src="@drawable/header_create_new_subject"
+        android:contentDescription="@string/CreateNewSubject" />
+    
     <Button
         android:id="@+id/button2"
         android:layout_width="280dp"
@@ -25,17 +24,8 @@
         android:layout_alignRight="@+id/button1"
         android:layout_below="@+id/button1"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         android:text="@string/Color" />
-	
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:background="@android:color/white"
-        android:layout_alignRight="@+id/button1"
-        android:layout_below="@+id/button2"
-        android:layout_marginTop="20dp"
-        android:text="@string/Icon" />
 
     <EditText
         android:id="@+id/editText1"
@@ -45,7 +35,7 @@
         android:layout_marginTop="20dp"
         android:layout_width="280dp"
         android:background="@android:color/white"
-        android:layout_below="@+id/button3"
+        android:layout_below="@+id/icon8"
         android:ems="10"
         android:hint="@string/SubjectName"
         android:inputType="textPersonName" >
@@ -53,14 +43,124 @@
         <requestFocus />
     </EditText>
     
-    <Button
+    <ImageButton
         android:id="@+id/button4"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:background="@android:color/white"
-        android:layout_alignRight="@+id/button1"
+        android:src="@drawable/button_add_subject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_below="@+id/editText1"
         android:layout_marginTop="20dp"
-        android:text="@string/Done" />
+        android:contentDescription="@string/Done" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button1"
+        android:layout_below="@+id/button2"
+        android:src="@drawable/icon_box" 
+        android:contentDescription="@string/Icon" />
+    
+    <ImageButton
+        android:id="@+id/icon6"
+        android:layout_width="49dp"
+        android:layout_height="49dp"
+        android:layout_alignLeft="@+id/button2"
+        android:layout_below="@+id/button2"
+        android:layout_marginRight="3dp"
+        android:layout_marginLeft="11.5dp"
+        android:layout_marginTop="8.5dp"
+        android:contentDescription="@string/Icon"
+        android:src="@drawable/icon6" />
+    
+     <ImageButton
+        android:id="@+id/icon5"
+        android:layout_width="49dp"
+        android:layout_height="49dp"
+        android:layout_alignTop="@+id/icon6"
+        android:layout_toRightOf="@+id/icon6"
+        android:layout_marginRight="3dp"
+        android:contentDescription="@string/Icon"
+        android:src="@drawable/icon5" />
+
+    <ImageButton
+        android:id="@+id/icon4"
+        android:layout_width="49dp"
+        android:layout_height="49dp"
+        android:layout_alignTop="@+id/icon6"
+        android:layout_toRightOf="@+id/icon5"
+        android:layout_marginRight="3dp"
+        android:contentDescription="@string/Icon"
+        android:src="@drawable/icon4" />
+
+    <ImageButton
+        android:id="@+id/icon2"
+        android:layout_width="49dp"
+        android:layout_height="49dp"
+        android:layout_alignTop="@+id/icon6"
+        android:layout_toRightOf="@+id/icon4"
+        android:layout_marginRight="3dp"
+        android:contentDescription="@string/Icon"
+        android:src="@drawable/icon2" />
+
+    <ImageButton
+        android:id="@+id/icon1"
+        android:layout_width="49dp"
+        android:layout_height="49dp"
+        android:layout_toRightOf="@+id/icon2"
+        android:layout_alignTop="@+id/icon6"
+        android:contentDescription="@string/Icon"
+        android:src="@drawable/icon1" />
+
+    <ImageButton
+        android:id="@+id/icon7"
+        android:layout_width="49dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="3dp"
+        android:layout_alignLeft="@+id/icon6"
+        android:layout_below="@+id/icon6"
+        android:contentDescription="@string/Icon"
+        android:src="@drawable/icon7" />
+
+    <ImageButton
+        android:id="@+id/icon11"
+        android:layout_width="49dp"
+        android:layout_height="49dp"
+        android:layout_below="@+id/icon1"
+        android:layout_toRightOf="@+id/icon4"
+        android:layout_alignTop="@+id/icon7"
+        android:contentDescription="@string/Icon"
+        android:src="@drawable/icon11" />
+
+    <ImageButton
+        android:id="@+id/icon12"
+        android:layout_width="49dp"
+        android:layout_height="49dp"
+        android:layout_alignRight="@+id/icon1"
+        android:layout_alignTop="@+id/icon7"
+        android:contentDescription="@string/Icon"
+        android:src="@drawable/icon12" />
+
+    <ImageButton
+        android:id="@+id/icon10"
+        android:layout_width="49dp"
+        android:layout_height="49dp"
+        android:layout_above="@+id/editText1"
+        android:layout_alignLeft="@+id/icon4"
+        android:layout_alignTop="@+id/icon7"
+        android:contentDescription="@string/Icon"
+        android:src="@drawable/icon10" />
+
+    <ImageButton
+        android:id="@+id/icon8"
+        android:layout_width="49dp"
+        android:layout_height="49dp"
+        android:layout_alignTop="@+id/icon7"
+        android:layout_toRightOf="@+id/icon6"
+        android:contentDescription="@string/Icon"
+        android:src="@drawable/icon8" />
+
+    
 
 </RelativeLayout>

@@ -25,7 +25,7 @@
     <string name="Done">Add Subject</string>
     <string name="Color">Colors Here</string>
     <string name="Icon">Icons Here</string>
-    <string name="SubjectName">Subject Name</string>
+    <string name="SubjectName">Type Subject Here</string>
     <string name="title_activity_timer_page">TimerPage</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_test">TestActivity</string>

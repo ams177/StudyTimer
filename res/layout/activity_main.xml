@@ -11,8 +11,8 @@
 
     <ImageButton
         android:id="@+id/button1"
-        android:layout_width="280dp"
-        android:layout_height="200dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:src="@drawable/hit_the_books2"
         android:layout_centerHorizontal="true"
         android:contentDescription="@string/StartButton"
@@ -22,8 +22,8 @@
    
     <ImageButton
         android:id="@+id/button2"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:src="@drawable/edit_subjects"
         android:layout_below="@+id/button1"
         android:layout_centerHorizontal="true"
@@ -33,8 +33,8 @@
 
     <ImageButton
         android:id="@+id/button3"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:src="@drawable/view_results"
         android:layout_alignRight="@+id/button2"
         android:layout_below="@+id/button2"
