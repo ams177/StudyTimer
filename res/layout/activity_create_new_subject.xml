@@ -10,22 +10,74 @@
 
     <ImageView
         android:id="@+id/button1"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:src="@drawable/header_create_new_subject"
         android:contentDescription="@string/CreateNewSubject" />
     
-    <Button
+    <ImageView
         android:id="@+id/button2"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:background="@android:color/white"
-        android:layout_alignRight="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/color_box"
+        android:layout_centerHorizontal="true"
         android:layout_below="@+id/button1"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        android:text="@string/Color" />
+        android:contentDescription="@string/Color" />
+    
+    <ImageButton
+        android:id="@+id/color1"
+        android:layout_width="49dp"
+        android:layout_height="49dp"
+        android:layout_alignLeft="@+id/button2"
+        android:layout_below="@+id/button1"
+        android:layout_marginRight="3dp"
+        android:layout_marginLeft="9dp"
+        android:layout_marginTop="30dp"
+        android:contentDescription="@string/Icon"
+        android:src="@drawable/color1" />
+    
+    <ImageButton
+        android:id="@+id/color2"
+        android:layout_width="49dp"
+        android:layout_height="49dp"
+        android:layout_alignTop="@+id/color1"
+        android:layout_toRightOf="@+id/color1"
+        android:layout_marginRight="3dp"
+        android:contentDescription="@string/Icon"
+        android:src="@drawable/color2" />
+    
+    <ImageButton
+        android:id="@+id/color3"
+        android:layout_width="49dp"
+        android:layout_height="49dp"
+        android:layout_alignTop="@+id/color1"
+        android:layout_toRightOf="@+id/color2"
+        android:layout_marginRight="3dp"
+        android:contentDescription="@string/Icon"
+        android:src="@drawable/color3" />
+    
+    <ImageButton
+        android:id="@+id/color4"
+        android:layout_width="49dp"
+        android:layout_height="49dp"
+        android:layout_alignTop="@+id/color1"
+        android:layout_toRightOf="@+id/color3"
+        android:layout_marginRight="3dp"
+        android:contentDescription="@string/Icon"
+        android:src="@drawable/color4" />
+    
+    <ImageButton
+        android:id="@+id/color5"
+        android:layout_width="49dp"
+        android:layout_height="49dp"
+        android:layout_alignTop="@+id/color1"
+        android:layout_toRightOf="@+id/color4"
+        android:layout_marginRight="3dp"
+        android:contentDescription="@string/Icon"
+        android:src="@drawable/color5" />
 
     <EditText
         android:id="@+id/editText1"
@@ -42,21 +94,12 @@
 
         <requestFocus />
     </EditText>
-    
-    <ImageButton
-        android:id="@+id/button4"
-        android:src="@drawable/button_add_subject"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/editText1"
-        android:layout_marginTop="20dp"
-        android:contentDescription="@string/Done" />
 
     <ImageView
         android:id="@+id/imageView1"
-        android:layout_width="280dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_alignLeft="@+id/button1"
         android:layout_below="@+id/button2"
         android:src="@drawable/icon_box" 
@@ -69,7 +112,7 @@
         android:layout_alignLeft="@+id/button2"
         android:layout_below="@+id/button2"
         android:layout_marginRight="3dp"
-        android:layout_marginLeft="11.5dp"
+        android:layout_marginLeft="9dp"
         android:layout_marginTop="8.5dp"
         android:contentDescription="@string/Icon"
         android:src="@drawable/icon6" />
@@ -161,6 +204,14 @@
         android:contentDescription="@string/Icon"
         android:src="@drawable/icon8" />
 
-    
+    <ImageButton
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:contentDescription="@string/Done"
+        android:src="@drawable/button_add_subject" />
 
 </RelativeLayout>

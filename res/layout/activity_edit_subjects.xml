@@ -8,25 +8,33 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin" >
 
-    <Button
+    <ImageView
         android:id="@+id/button1"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:background="@android:color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/header_edit_subjects"
         android:layout_centerHorizontal="true"
-        android:text="@string/EditSubjects"
-        android:typeface="sans" />
+        android:contentDescription="@string/EditSubjects" />
 
-	<Button
+	<ImageButton
 	    android:id="@+id/button2"
-	    android:layout_width="280dp"
-	    android:layout_height="50dp"
-	    android:background="@android:color/white"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
 	    android:layout_alignLeft="@+id/button1"
 	    android:layout_alignParentBottom="true"
-	    android:layout_marginBottom="38dp"
-	    android:text="@string/CreateNewSubject"
-	    android:typeface="sans"
-	    android:onClick="createNewSubject" />
+	    android:layout_marginBottom="10dp"
+	    android:contentDescription="@string/CreateNewSubject"
+	    android:onClick="createNewSubject"
+	    android:src="@drawable/button_create_new_subject" />
+
+	<TextView
+	    android:id="@+id/textView1"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignLeft="@+id/button1"
+	    android:layout_alignRight="@+id/button1"
+	    android:layout_below="@+id/button1"
+	    android:layout_marginTop="24dp"
+	    android:text="TextView" />
     
 </RelativeLayout>

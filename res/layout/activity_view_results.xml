@@ -8,32 +8,62 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin" >
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:background="@android:color/white"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="1dp"
-        android:text="@string/Results" />
-
-    <Button
+  
+    <ImageView
         android:id="@+id/button2"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:background="@android:color/white"
-        android:layout_alignRight="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/header_results_below"
+        android:layout_centerHorizontal="true"
         android:layout_below="@+id/button1"
-        android:layout_marginTop="1dp"
-        android:text="@string/Week" />
+        android:layout_marginTop="0dp"
+        android:contentDescription="@string/Week" />
     
-    <ImageButton
+    <ImageView
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/header_results"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:contentDescription="@string/Results" />
+    
+    <ImageView
         android:id="@+id/button3"
-        android:layout_width="280dp"
-        android:layout_height="350dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/button2"
+        android:layout_marginTop="5dp"
         android:layout_centerHorizontal="true"
         android:src="@drawable/bar_graph"
         android:contentDescription="@string/Week" />
+
+    <ImageButton
+        android:id="@+id/imageButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button3"
+        android:layout_alignTop="@+id/button2"
+        android:src="@drawable/button_results_left"
+        android:contentDescription="@string/Week"  />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/button3"
+        android:layout_alignTop="@+id/button2"
+        android:src="@drawable/button_results_right"
+        android:contentDescription="@string/Week"  />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/button2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:text="@string/Week"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>
