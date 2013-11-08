@@ -32,5 +32,15 @@
     <string name="title_activity_edit_subjects">EditSubjects</string>
     <string name="title_activity_view_results">ViewResults</string>
     <string name="title_activity_create_new_subject">CreateNewSubject</string>
+    
+
+    <string-array name="subjects">
+        <item>Calculus</item>
+        <item>Algorithms</item>
+        <item>Art History</item>
+        <item>Graphic Design</item>
+        <item>Underwater Basketweaving</item>
+    </string-array>
+
 
 </resources>

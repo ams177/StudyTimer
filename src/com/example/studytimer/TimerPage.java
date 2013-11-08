@@ -8,7 +8,9 @@ import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Chronometer;
+import android.widget.Spinner;
 
 public class TimerPage extends Activity {
 	@Override
@@ -17,6 +19,17 @@ public class TimerPage extends Activity {
 		setContentView(R.layout.timer_page);
 		// Show the Up button in the action bar.
 		setupActionBar();
+		
+		Spinner spinner = (Spinner) findViewById(R.id.spinner1);
+		// Create an ArrayAdapter using the string array and a default spinner layout
+		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+		        R.array.subjects, android.R.layout.simple_spinner_item);
+		// Specify the layout to use when the list of choices appears
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		// Apply the adapter to the spinner
+		spinner.setAdapter(adapter);
+		
+		((Chronometer) findViewById(R.id.chronometer1)).start();
 	}
 
 	/**

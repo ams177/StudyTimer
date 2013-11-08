@@ -16,7 +16,7 @@
         android:src="@drawable/hit_the_books2"
         android:layout_centerHorizontal="true"
         android:contentDescription="@string/StartButton"
-        android:typeface="sans" 
+        style="?android:attr/borderlessButtonStyle"
         android:onClick="startTimer" />
 
    
@@ -29,6 +29,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:contentDescription="@string/EditSubjects"
+        style="?android:attr/borderlessButtonStyle"
         android:onClick="editSubjects" />
 
     <ImageButton

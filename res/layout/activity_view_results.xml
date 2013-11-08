@@ -45,6 +45,7 @@
         android:layout_alignLeft="@+id/button3"
         android:layout_alignTop="@+id/button2"
         android:src="@drawable/button_results_left"
+        style="?android:attr/borderlessButtonStyle"
         android:contentDescription="@string/Week"  />
 
     <ImageButton
@@ -54,6 +55,7 @@
         android:layout_alignRight="@+id/button3"
         android:layout_alignTop="@+id/button2"
         android:src="@drawable/button_results_right"
+        style="?android:attr/borderlessButtonStyle"
         android:contentDescription="@string/Week"  />
 
     <TextView
