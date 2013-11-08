@@ -24,9 +24,9 @@
         android:layout_below="@+id/spinner1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:src="@drawable/button_pause"
+        android:src="@drawable/button_blank"
         android:contentDescription="@string/Pause"
-        android:onClick="stopChronometer" />
+        android:onClick="pauseChronometer" />
 
     <ImageButton
         android:id="@+id/button4"
@@ -36,7 +36,8 @@
         android:layout_below="@+id/button3"
         android:layout_marginTop="10dp"
         android:src="@drawable/button_stop"
-        android:contentDescription="@string/Stop" />
+        android:contentDescription="@string/Stop"
+        android:onClick="stopChronometer" />
 
     <Chronometer
         android:id="@+id/chronometer1"
@@ -63,5 +64,15 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/button1"
         android:layout_marginBottom="23dp" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/button3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:text="@string/pause"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>

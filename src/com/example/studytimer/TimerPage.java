@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,8 +12,12 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Chronometer;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 public class TimerPage extends Activity {
+	
+   	long time_elapsed;  //keeps track of time for pause
+   	boolean timer_running;  //keeps track of if the timer is running or not for pause button
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -29,7 +34,12 @@ public class TimerPage extends Activity {
 		// Apply the adapter to the spinner
 		spinner.setAdapter(adapter);
 		
+		//initialize time_elapsed
+		time_elapsed = 0; 
+		//start the timer
 		((Chronometer) findViewById(R.id.chronometer1)).start();
+		//initialize that timer is running
+		timer_running = true; 
 	}
 
 	/**
@@ -70,7 +80,26 @@ public class TimerPage extends Activity {
     }
 
     public void stopChronometer(View view) {
+    	time_elapsed = time_elapsed + ((Chronometer) findViewById(R.id.chronometer1)).getBase();
         ((Chronometer) findViewById(R.id.chronometer1)).stop();
+        timer_running = false;
+    }
+    
+    public void pauseChronometer(View view) {
+    	if (timer_running) {
+    		time_elapsed = SystemClock.elapsedRealtime() - ((Chronometer) findViewById(R.id.chronometer1)).getBase();
+            ((Chronometer) findViewById(R.id.chronometer1)).stop();
+            timer_running = false;
+            TextView buttonText = (TextView) findViewById(R.id.textView1);
+            buttonText.setText("Resume");
+    	} else {
+    		((Chronometer) findViewById(R.id.chronometer1)).setBase(SystemClock.elapsedRealtime() - time_elapsed);
+    		((Chronometer) findViewById(R.id.chronometer1)).start();
+    		timer_running = true;
+    		TextView buttonText = (TextView) findViewById(R.id.textView1);
+            buttonText.setText("Pause");
+    	}
+    	
     }
  
 }
