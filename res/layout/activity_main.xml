@@ -18,13 +18,21 @@
         android:contentDescription="@string/StartButton"
         android:onClick="startTimer" />
 
-   
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+         android:layout_below="@+id/button1"
+        android:src="@drawable/header_results_below" />
+ 
     <ImageButton
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/button_edit_subjects"
-        android:layout_below="@+id/button1"
+        android:layout_below="@+id/imageView1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:contentDescription="@string/EditSubjects"
@@ -40,5 +48,14 @@
         android:layout_marginTop="20dp"
         android:contentDescription="@string/ViewResults" 
         android:onClick="viewResults" />
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button2" 
+        android:layout_centerHorizontal="true" 
+        android:layout_marginLeft="30dp" 
+        android:layout_marginBottom="10dp" />
 
 </RelativeLayout>

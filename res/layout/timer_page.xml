@@ -82,7 +82,7 @@
         android:layout_alignTop="@+id/button1"
         android:layout_marginTop="14dp"
         android:layout_marginLeft="30dp"
-        android:text="Calculus"
+        android:text="@string/blank"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView

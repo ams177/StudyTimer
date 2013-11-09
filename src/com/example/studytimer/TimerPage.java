@@ -2,6 +2,7 @@ package com.example.studytimer;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -22,7 +23,8 @@ public class TimerPage extends Activity implements OnItemSelectedListener{
    	private boolean timer_running;  //keeps track of if the timer is running or not for pause button
    	private Spinner spinner1; //its the spinner
    	private TextView textView; //textView of currently studying subject
-
+   	private int message;
+   	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -49,7 +51,10 @@ public class TimerPage extends Activity implements OnItemSelectedListener{
 		((Chronometer) findViewById(R.id.chronometer1)).start();
 		//initialize that timer is running
 		timer_running = true; 
-
+		Intent intent = getIntent();
+		Bundle extras = getIntent().getExtras();
+		message = extras.getInt("selected");
+		spinner1.setSelection(message, false);
 
 	}
 
@@ -118,7 +123,8 @@ public class TimerPage extends Activity implements OnItemSelectedListener{
     public void onItemSelected(AdapterView<?> parent, View view, 
             int pos, long id) {
     	String value = (String) parent.getItemAtPosition(pos);
-        textView.setText(value);
+        textView.setText(value);    
+        ((Chronometer) findViewById(R.id.chronometer1)).start();
     }
     @Override
     public void onNothingSelected(AdapterView<?> arg0) {
