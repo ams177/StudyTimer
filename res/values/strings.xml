@@ -13,6 +13,7 @@
     <string name="ChangeSubject">Change Subject</string>
     <string name="Pause">Pause</string>
     <string name="Stop">Stop</string>
+    <string name="currently_studying">Currently studying:</string>
 
     <!-- Results -->
     <string name="Week">This Week</string>
