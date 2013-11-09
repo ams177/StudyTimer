@@ -9,39 +9,47 @@ import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Chronometer;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class TimerPage extends Activity {
+public class TimerPage extends Activity implements OnItemSelectedListener{
 	
-   	long time_elapsed;  //keeps track of time for pause
-   	boolean timer_running;  //keeps track of if the timer is running or not for pause button
+   	private long time_elapsed;  //keeps track of time for pause
+   	private boolean timer_running;  //keeps track of if the timer is running or not for pause button
+   	private Spinner spinner1; //its the spinner
+   	private TextView textView; //textView of currently studying subject
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.timer_page);
 		// Show the Up button in the action bar.
 		setupActionBar();
-		
-		Spinner spinner = (Spinner) findViewById(R.id.spinner1);
+		// Link the spinner from layout page
+		spinner1 = (Spinner) findViewById(R.id.spinner1);
 		// Create an ArrayAdapter using the string array and a default spinner layout
 		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
 		        R.array.subjects, android.R.layout.simple_spinner_item);
 		// Specify the layout to use when the list of choices appears
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		// Apply the adapter to the spinner
-		spinner.setAdapter(adapter);
-		//Trying to listen for spinner
-		//spinner.setOnItemSelectedListener(this);
-		
+		spinner1.setAdapter(adapter);
+		// Add listener to spinner
+		spinner1.setOnItemSelectedListener(this);
+		// Link textView to textview on layout page
+		textView = (TextView) findViewById(R.id.textView2);
+	
 		//initialize time_elapsed
 		time_elapsed = 0; 
 		//start the timer
 		((Chronometer) findViewById(R.id.chronometer1)).start();
 		//initialize that timer is running
 		timer_running = true; 
+
 
 	}
 
@@ -104,4 +112,17 @@ public class TimerPage extends Activity {
             buttonText.setText("Pause");
     	}
     }
+  
+    @Override
+    // Changes text based on spinner selection
+    public void onItemSelected(AdapterView<?> parent, View view, 
+            int pos, long id) {
+    	String value = (String) parent.getItemAtPosition(pos);
+        textView.setText(value);
+    }
+    @Override
+    public void onNothingSelected(AdapterView<?> arg0) {
+  	// TODO Auto-generated method stub
+    }
+    
 }
