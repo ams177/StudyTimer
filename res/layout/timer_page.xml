@@ -75,4 +75,23 @@
         android:text="@string/pause"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/button1"
+        android:layout_marginTop="14dp"
+        android:layout_marginLeft="30dp"
+        android:text="Calculus"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignTop="@+id/button1"
+        android:text="@string/currently_studying"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
 </RelativeLayout>

@@ -33,6 +33,8 @@ public class TimerPage extends Activity {
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		// Apply the adapter to the spinner
 		spinner.setAdapter(adapter);
+		//Trying to listen for spinner
+		//spinner.setOnItemSelectedListener(this);
 		
 		//initialize time_elapsed
 		time_elapsed = 0; 
@@ -40,6 +42,7 @@ public class TimerPage extends Activity {
 		((Chronometer) findViewById(R.id.chronometer1)).start();
 		//initialize that timer is running
 		timer_running = true; 
+
 	}
 
 	/**
@@ -75,16 +78,17 @@ public class TimerPage extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	//starts the timer
 	public void startChronometer(View view) {
         ((Chronometer) findViewById(R.id.chronometer1)).start();
     }
-
+	//stops the timer
     public void stopChronometer(View view) {
-    	time_elapsed = time_elapsed + ((Chronometer) findViewById(R.id.chronometer1)).getBase();
         ((Chronometer) findViewById(R.id.chronometer1)).stop();
         timer_running = false;
     }
-    
+    //Pauses or Resumes the timer depending on status of timer_running
+    //changes the text on the pause button to resume when paused
     public void pauseChronometer(View view) {
     	if (timer_running) {
     		time_elapsed = SystemClock.elapsedRealtime() - ((Chronometer) findViewById(R.id.chronometer1)).getBase();
@@ -99,7 +103,5 @@ public class TimerPage extends Activity {
     		TextView buttonText = (TextView) findViewById(R.id.textView1);
             buttonText.setText("Pause");
     	}
-    	
     }
- 
 }
