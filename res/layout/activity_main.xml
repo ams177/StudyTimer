@@ -24,8 +24,9 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-         android:layout_below="@+id/button1"
-        android:src="@drawable/header_results_below" />
+        android:layout_below="@+id/button1"
+        android:src="@drawable/header_results_below"
+        android:contentDescription="@string/Color" />
  
     <ImageButton
         android:id="@+id/button2"

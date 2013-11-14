@@ -1,9 +1,18 @@
 package com.example.studytimer;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.support.v4.app.NavUtils;
 
 public class ViewResults extends Activity {
@@ -14,6 +23,34 @@ public class ViewResults extends Activity {
 		setContentView(R.layout.activity_view_results);
 		// Show the Up button in the action bar.
 		setupActionBar();
+		readFile();
+	}
+
+	private void readFile() {
+		// TODO Auto-generated method stub
+		StringBuilder text = new StringBuilder();
+		//File file = new File("hello_file.txt");
+		
+		try {
+		    BufferedReader br = new BufferedReader(new InputStreamReader(openFileInput("hello_file")));
+		    String line;
+		    StringBuffer sb = new StringBuffer();
+
+		    while ((line = br.readLine()) != null) {
+		        text.append(line);
+		        text.append('\n');
+		    }
+		    br.close();
+		}
+		catch (IOException e) {
+		    //You'll need to add proper error handling here
+		}
+
+		//Find the view by its id
+		TextView tv = (TextView)findViewById(R.id.textView2);
+
+		//Set the text
+		tv.setText(text);
 	}
 
 	/**

@@ -1,7 +1,12 @@
 package com.example.studytimer;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -24,6 +29,8 @@ public class TimerPage extends Activity implements OnItemSelectedListener{
    	private Spinner spinner1; //its the spinner
    	private TextView textView; //textView of currently studying subject
    	private int message;
+   	private long start_time;
+   	//Chronometer t = (Chronometer)findViewById(R.id.chronometer1);
    	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +49,7 @@ public class TimerPage extends Activity implements OnItemSelectedListener{
 		spinner1.setAdapter(adapter);
 		// Add listener to spinner
 		spinner1.setOnItemSelectedListener(this);
-		// Link textView to textview on layout page
+		// Link textView to textView on layout page
 		textView = (TextView) findViewById(R.id.textView2);
 	
 		//initialize time_elapsed
@@ -50,9 +57,10 @@ public class TimerPage extends Activity implements OnItemSelectedListener{
 		//start the timer
 		((Chronometer) findViewById(R.id.chronometer1)).start();
 		//initialize that timer is running
+		start_time = ((Chronometer) findViewById(R.id.chronometer1)).getBase();
 		timer_running = true; 
 		Intent intent = getIntent();
-		Bundle extras = getIntent().getExtras();
+		Bundle extras = intent.getExtras();
 		message = extras.getInt("selected");
 		spinner1.setSelection(message, false);
 
@@ -96,9 +104,26 @@ public class TimerPage extends Activity implements OnItemSelectedListener{
         ((Chronometer) findViewById(R.id.chronometer1)).start();
     }
 	//stops the timer
-    public void stopChronometer(View view) {
+    public void stopChronometer(View view) throws IOException {
         ((Chronometer) findViewById(R.id.chronometer1)).stop();
         timer_running = false;
+        
+        String FILENAME = "hello_file";
+        String string = Long.toString(SystemClock.elapsedRealtime() - ((Chronometer) findViewById(R.id.chronometer1)).getBase());
+        //String string = ( (Chronometer) findViewById(R.id.chronometer1)).getFormat();
+        
+        FileOutputStream fos;
+		try {
+			fos = openFileOutput(FILENAME, Context.MODE_PRIVATE); //MODE_APPEND
+			fos.write(string.getBytes());
+			fos.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Intent intent = new Intent(this, MainActivity.class);
+		startActivity(intent);
+        
     }
     //Pauses or Resumes the timer depending on status of timer_running
     //changes the text on the pause button to resume when paused

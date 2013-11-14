@@ -68,4 +68,13 @@
         android:contentDescription="@string/Week"
         android:src="@drawable/button_results_left" />
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imageButton1"
+        android:layout_alignTop="@+id/button1"
+        android:layout_marginTop="16dp"
+        android:text="@string/Week" />
+
 </RelativeLayout>
