@@ -15,26 +15,34 @@
         android:src="@drawable/header_edit_subjects"
         android:layout_centerHorizontal="true"
         android:contentDescription="@string/EditSubjects" />
-
-	<ImageButton
+	
+	<ImageView 
+	    android:id="@+id/imageView2"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="10dp"
+	    android:layout_alignLeft="@+id/button1"
+	    android:layout_centerHorizontal="true"
+	    android:src="@drawable/bar_graph_white"  
+	    android:layout_below="@+id/button1"
+	    android:contentDescription="@string/EditSubjects" />
+	    
+	<TextView
+	    android:id="@+id/textView1"
+	    android:layout_width="260dp"
+	    android:layout_height="wrap_content"
+	    android:layout_centerHorizontal="true"
+	    android:layout_below="@+id/button1"
+	    android:layout_marginTop="20dp"
+	    android:text="@string/EditSubjects" />
+	
+    <ImageButton
 	    android:id="@+id/button2"
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
-	    android:layout_alignLeft="@+id/button1"
 	    android:layout_alignParentBottom="true"
-	    android:layout_marginBottom="10dp"
+	    android:layout_centerHorizontal="true"
 	    android:contentDescription="@string/CreateNewSubject"
 	    android:onClick="createNewSubject"
 	    android:src="@drawable/button_create_new_subject" />
-
-	<TextView
-	    android:id="@+id/textView1"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_alignLeft="@+id/button1"
-	    android:layout_alignRight="@+id/button1"
-	    android:layout_below="@+id/button1"
-	    android:layout_marginTop="24dp"
-	    android:text="TextView" />
-    
 </RelativeLayout>

@@ -1,11 +1,16 @@
 package com.example.studytimer;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.support.v4.app.NavUtils;
 
 public class EditSubjects extends Activity {
@@ -16,8 +21,34 @@ public class EditSubjects extends Activity {
 		setContentView(R.layout.activity_edit_subjects);
 		// Show the Up button in the action bar.
 		setupActionBar();
+		readFile();
 	}
 
+	private void readFile() {
+		// TODO Auto-generated method stub
+		StringBuilder text = new StringBuilder();
+		
+		try {
+			//Open file and display it to screen
+		    BufferedReader br = new BufferedReader(new InputStreamReader(openFileInput("subject_file")));
+		    String line;
+
+		    while ((line = br.readLine()) != null) {
+		        text.append(line);
+		        text.append('\n');
+		    }
+		    br.close();
+		}
+		catch (IOException e) {
+		    //You'll need to add proper error handling here
+		}
+
+		//Find the view by its id
+		TextView tv = (TextView)findViewById(R.id.textView1);
+
+		//Set the text
+		tv.setText(text);
+	}
 	/**
 	 * Set up the {@link android.app.ActionBar}.
 	 */

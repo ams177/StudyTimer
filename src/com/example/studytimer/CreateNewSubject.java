@@ -1,12 +1,22 @@
 package com.example.studytimer;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class CreateNewSubject extends Activity {
+	private TextView textview;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -14,7 +24,7 @@ public class CreateNewSubject extends Activity {
 		setContentView(R.layout.activity_create_new_subject);
 		// Show the Up button in the action bar.
 		setupActionBar();
-
+		textview = (TextView) findViewById(R.id.editText1);
 	}
 
 	/**
@@ -49,6 +59,28 @@ public class CreateNewSubject extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
+	 public void addSubject(View view) throws IOException {
+	        
+	        String FILENAME = "subject_file";
+	        String string = textview.getText().toString()+'\n';
+	        if (string.matches("\n")) {
+	            Toast.makeText(this, "You did not enter a subject", Toast.LENGTH_SHORT).show();
+	            return;
+	        }
+	        FileOutputStream fos;
+			try {
+				fos = openFileOutput(FILENAME, Context.MODE_APPEND); //MODE_APPEND
+				fos.write(string.getBytes());
+				fos.close();
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			Intent intent = new Intent(this, EditSubjects.class);
+			startActivity(intent);
+	        
+	    }
 	
 	
 
