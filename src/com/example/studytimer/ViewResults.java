@@ -1,13 +1,8 @@
 package com.example.studytimer;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
@@ -29,12 +24,11 @@ public class ViewResults extends Activity {
 	private void readFile() {
 		// TODO Auto-generated method stub
 		StringBuilder text = new StringBuilder();
-		//File file = new File("hello_file.txt");
 		
 		try {
-		    BufferedReader br = new BufferedReader(new InputStreamReader(openFileInput("hello_file")));
+			//Open file and display it to screen
+		    BufferedReader br = new BufferedReader(new InputStreamReader(openFileInput("data_file")));
 		    String line;
-		    StringBuffer sb = new StringBuffer();
 
 		    while ((line = br.readLine()) != null) {
 		        text.append(line);

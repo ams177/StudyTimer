@@ -35,7 +35,7 @@
         android:layout_below="@+id/button2"
         android:layout_marginTop="5dp"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/bar_graph"
+        android:src="@drawable/bar_graph_white"
         android:contentDescription="@string/Week" />
 
     <ImageButton
@@ -72,9 +72,10 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/imageButton1"
-        android:layout_alignTop="@+id/button1"
-        android:layout_marginTop="16dp"
+        android:layout_below="@+id/button2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:textSize="12sp"
         android:text="@string/Week" />
 
 </RelativeLayout>

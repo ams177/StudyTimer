@@ -28,9 +28,8 @@ public class TimerPage extends Activity implements OnItemSelectedListener{
    	private boolean timer_running;  //keeps track of if the timer is running or not for pause button
    	private Spinner spinner1; //its the spinner
    	private TextView textView; //textView of currently studying subject
-   	private int message;
-   	private long start_time;
-   	//Chronometer t = (Chronometer)findViewById(R.id.chronometer1);
+   	private int message;  //gets the subject to be studied from Main Activity page
+   	private Chronometer timer; //this is the timer
    	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -51,14 +50,14 @@ public class TimerPage extends Activity implements OnItemSelectedListener{
 		spinner1.setOnItemSelectedListener(this);
 		// Link textView to textView on layout page
 		textView = (TextView) findViewById(R.id.textView2);
-	
+		timer = (Chronometer) findViewById (R.id.chronometer1);
 		//initialize time_elapsed
 		time_elapsed = 0; 
 		//start the timer
-		((Chronometer) findViewById(R.id.chronometer1)).start();
+		timer.start();
 		//initialize that timer is running
-		start_time = ((Chronometer) findViewById(R.id.chronometer1)).getBase();
 		timer_running = true; 
+		//Get data from MainAvtivity page
 		Intent intent = getIntent();
 		Bundle extras = intent.getExtras();
 		message = extras.getInt("selected");
@@ -101,20 +100,19 @@ public class TimerPage extends Activity implements OnItemSelectedListener{
 	}
 	//starts the timer
 	public void startChronometer(View view) {
-        ((Chronometer) findViewById(R.id.chronometer1)).start();
+        timer.start();
     }
-	//stops the timer
+	//stops the timer, saves the time studied, subject studied and a time stamp to an internal file
     public void stopChronometer(View view) throws IOException {
-        ((Chronometer) findViewById(R.id.chronometer1)).stop();
+        timer.stop();
         timer_running = false;
         
-        String FILENAME = "hello_file";
-        String string = Long.toString(SystemClock.elapsedRealtime() - ((Chronometer) findViewById(R.id.chronometer1)).getBase());
-        //String string = ( (Chronometer) findViewById(R.id.chronometer1)).getFormat();
+        String FILENAME = "data_file";
+        String string = Long.toString((SystemClock.elapsedRealtime() - timer.getBase())/1000)+","+textView.getText()+","+System.currentTimeMillis()+"\n";
         
         FileOutputStream fos;
 		try {
-			fos = openFileOutput(FILENAME, Context.MODE_PRIVATE); //MODE_APPEND
+			fos = openFileOutput(FILENAME, Context.MODE_APPEND); //MODE_APPEND
 			fos.write(string.getBytes());
 			fos.close();
 		} catch (FileNotFoundException e) {
@@ -129,14 +127,14 @@ public class TimerPage extends Activity implements OnItemSelectedListener{
     //changes the text on the pause button to resume when paused
     public void pauseChronometer(View view) {
     	if (timer_running) {
-    		time_elapsed = SystemClock.elapsedRealtime() - ((Chronometer) findViewById(R.id.chronometer1)).getBase();
+    		time_elapsed = SystemClock.elapsedRealtime() - timer.getBase();
             ((Chronometer) findViewById(R.id.chronometer1)).stop();
             timer_running = false;
             TextView buttonText = (TextView) findViewById(R.id.textView1);
             buttonText.setText("Resume");
     	} else {
-    		((Chronometer) findViewById(R.id.chronometer1)).setBase(SystemClock.elapsedRealtime() - time_elapsed);
-    		((Chronometer) findViewById(R.id.chronometer1)).start();
+    		timer.setBase(SystemClock.elapsedRealtime() - time_elapsed);
+    		timer.start();
     		timer_running = true;
     		TextView buttonText = (TextView) findViewById(R.id.textView1);
             buttonText.setText("Pause");
@@ -149,7 +147,7 @@ public class TimerPage extends Activity implements OnItemSelectedListener{
             int pos, long id) {
     	String value = (String) parent.getItemAtPosition(pos);
         textView.setText(value);    
-        ((Chronometer) findViewById(R.id.chronometer1)).start();
+        timer.start();
     }
     @Override
     public void onNothingSelected(AdapterView<?> arg0) {
