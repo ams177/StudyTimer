@@ -12,7 +12,7 @@
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/header_edit_subjects"
+        android:src="@drawable/box_small"
         android:layout_centerHorizontal="true"
         android:contentDescription="@string/EditSubjects" />
 	
@@ -23,18 +23,9 @@
 	    android:layout_marginTop="10dp"
 	    android:layout_alignLeft="@+id/button1"
 	    android:layout_centerHorizontal="true"
-	    android:src="@drawable/bar_graph_white"  
+	    android:src="@drawable/box_huge"  
 	    android:layout_below="@+id/button1"
 	    android:contentDescription="@string/EditSubjects" />
-	    
-	<TextView
-	    android:id="@+id/textView1"
-	    android:layout_width="260dp"
-	    android:layout_height="wrap_content"
-	    android:layout_centerHorizontal="true"
-	    android:layout_below="@+id/button1"
-	    android:layout_marginTop="20dp"
-	    android:text="@string/EditSubjects" />
 	
     <ImageButton
 	    android:id="@+id/button2"
@@ -44,5 +35,37 @@
 	    android:layout_centerHorizontal="true"
 	    android:contentDescription="@string/CreateNewSubject"
 	    android:onClick="createNewSubject"
-	    android:src="@drawable/button_create_new_subject" />
+	    android:src="@drawable/box_small" />
+    
+    <TextView
+	    android:id="@+id/textView1"
+	    android:layout_width="260dp"
+	    android:layout_height="wrap_content"
+	    android:layout_centerHorizontal="true"
+	    android:layout_below="@+id/button1"
+	    android:layout_marginTop="20dp"
+	    android:text="@string/EditSubjects" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/button1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="14dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:text="@string/EditSubjects" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/button2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="22dp"
+        android:text="@string/CreateNewSubject"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
 </RelativeLayout>

@@ -9,7 +9,6 @@
     <string name="ViewResults">View Results</string>
 
     <!-- Timer -->
-    <string name="Countdown">00:12:37</string>
     <string name="ChangeSubject">Change Subject</string>
     <string name="Pause">Pause</string>
     <string name="Stop">Stop</string>
@@ -36,14 +35,6 @@
     <string name="title_activity_create_new_subject">CreateNewSubject</string>
     <string name="pause">Pause</string>
     <string name="resume">Resume</string>
-
-    <string-array name="subjects">
-        <item>Calculus</item>
-        <item>Algorithms</item>
-        <item>Art History</item>
-        <item>Graphic Design</item>
-        <item>Underwater Basketweaving</item>
-    </string-array>
 
 
 </resources>

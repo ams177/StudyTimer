@@ -62,26 +62,22 @@ public class CreateNewSubject extends Activity {
 	
 	 public void addSubject(View view) throws IOException {
 	        
-	        String FILENAME = "subject_file";
-	        String string = textview.getText().toString()+'\n';
-	        if (string.matches("\n")) {
-	            Toast.makeText(this, "You did not enter a subject", Toast.LENGTH_SHORT).show();
-	            return;
-	        }
-	        FileOutputStream fos;
-			try {
-				fos = openFileOutput(FILENAME, Context.MODE_APPEND); //MODE_APPEND
-				fos.write(string.getBytes());
-				fos.close();
-			} catch (FileNotFoundException e) {
+		 String FILENAME = "subject_file";
+	     String string = textview.getText().toString()+'\n';
+	     if (string.matches("\n")) {
+	     	Toast.makeText(this, "You did not enter a subject", Toast.LENGTH_SHORT).show();
+	     	return;
+	     }
+	     FileOutputStream fos;
+	     try {
+	    	 fos = openFileOutput(FILENAME, Context.MODE_APPEND); //MODE_APPEND
+	    	 fos.write(string.getBytes());
+	    	 fos.close();
+	     } catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			Intent intent = new Intent(this, EditSubjects.class);
-			startActivity(intent);
-	        
+			startActivity(intent);   
 	    }
-	
-	
-
 }

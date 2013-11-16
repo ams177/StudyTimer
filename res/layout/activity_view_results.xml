@@ -8,25 +8,24 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin" >
 
-  
-    <ImageView
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/header_results_below"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/button1"
-        android:layout_marginTop="0dp"
-        android:contentDescription="@string/Week" />
-    
     <ImageView
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/header_results"
+        android:src="@drawable/box_small"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="0dp"
         android:contentDescription="@string/Results" />
+    
+    <ImageView
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/box_small"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/button1"
+        android:layout_marginTop="-6dp"
+        android:contentDescription="@string/Week" />
     
     <ImageView
         android:id="@+id/button3"
@@ -35,7 +34,7 @@
         android:layout_below="@+id/button2"
         android:layout_marginTop="5dp"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/bar_graph_white"
+        android:src="@drawable/box_huge"
         android:contentDescription="@string/Week" />
 
     <ImageButton
@@ -77,5 +76,16 @@
         android:layout_marginTop="14dp"
         android:textSize="12sp"
         android:text="@string/Week" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/button1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="14dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:text="@string/Results" />
 
 </RelativeLayout>

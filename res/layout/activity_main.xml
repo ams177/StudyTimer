@@ -13,7 +13,7 @@
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/hit_the_books2"
+        android:src="@drawable/box_large"
         android:layout_centerHorizontal="true"
         android:contentDescription="@string/StartButton"
         android:onClick="startTimer" />
@@ -25,14 +25,15 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_below="@+id/button1"
-        android:src="@drawable/header_results_below"
+        android:src="@drawable/box_small"
+        android:layout_marginTop="20dp"
         android:contentDescription="@string/Color" />
  
     <ImageButton
-        android:id="@+id/button2"
+        android:id="@+id/button_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/button_edit_subjects"
+        android:src="@drawable/box_small"
         android:layout_below="@+id/imageView1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
@@ -40,12 +41,12 @@
         android:onClick="editSubjects" />
 
     <ImageButton
-        android:id="@+id/button3"
+        android:id="@+id/button_results"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/button_view_results"
+        android:src="@drawable/box_small"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/button2"
+        android:layout_below="@+id/button_edit"
         android:layout_marginTop="20dp"
         android:contentDescription="@string/ViewResults" 
         android:onClick="viewResults" />
@@ -54,9 +55,42 @@
         android:id="@+id/spinner1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button2" 
+        android:layout_above="@+id/button_edit" 
         android:layout_centerHorizontal="true" 
         android:layout_marginLeft="30dp" 
         android:layout_marginBottom="10dp" />
+
+    <TextView
+        android:id="@+id/text_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/button_edit"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="22dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:text="@string/EditSubjects" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/button_results"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:text="@string/ViewResults" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/spinner1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="109dp"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:text="@string/StartButton" />
 
 </RelativeLayout>

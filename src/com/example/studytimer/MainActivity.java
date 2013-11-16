@@ -1,5 +1,11 @@
 package com.example.studytimer;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,20 +20,36 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
 	private Spinner spinner1; //its the spinner
 	private int selected_value;
 	public final static String EXTRA_MESSAGE = "1";
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		//This is the spinner
 		spinner1 = (Spinner) findViewById(R.id.spinner1);
-		// Create an ArrayAdapter using the string array and a default spinner layout
-		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-		        R.array.subjects, android.R.layout.simple_spinner_item);
-		// Specify the layout to use when the list of choices appears
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		// Apply the adapter to the spinner
-		spinner1.setAdapter(adapter);
-		// Add listener to spinner
+		
+		List<String> SpinnerArray =  new ArrayList<String>();
+		
+		try {
+			//Open file and display it to screen
+		    BufferedReader br = new BufferedReader(new InputStreamReader(openFileInput("subject_file")));
+		    String line;
+
+		    while ((line = br.readLine()) != null) {
+		    	SpinnerArray.add(line);
+		    }
+		    br.close();
+		}
+		catch (IOException e) {
+		    //You'll need to add proper error handling here
+		}
+		
+		// link up to the spinner
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, SpinnerArray);
+	    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+	    spinner1.setAdapter(adapter);
+		
+	    //Start the listener on the spinner
 		spinner1.setOnItemSelectedListener(this);
 	}
 

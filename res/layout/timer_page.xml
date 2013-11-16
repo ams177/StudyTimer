@@ -8,34 +8,33 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin" >
 
-    <Button
-        android:id="@+id/button1"
-        style="@style/AppTheme"
-        android:layout_width="280dp"
-        android:layout_height="200dp"
+    <ImageView
+        android:id="@+id/timer_background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:background="@android:color/white"
-        android:typeface="sans" />
+        android:src="@drawable/box_large"
+        android:contentDescription="@string/Pause" />
 
     <ImageButton
-        android:id="@+id/button3"
+        android:id="@+id/button_pause"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/spinner1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:src="@drawable/button_blank"
+        android:src="@drawable/box_small"
         android:contentDescription="@string/Pause"
         android:onClick="pauseChronometer" />
 
     <ImageButton
-        android:id="@+id/button4"
+        android:id="@+id/button_stop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/button3"
-        android:layout_below="@+id/button3"
+        android:layout_alignRight="@+id/button_pause"
+        android:layout_below="@+id/button_pause"
         android:layout_marginTop="10dp"
-        android:src="@drawable/button_stop"
+        android:src="@drawable/box_small"
         android:contentDescription="@string/Stop"
         android:onClick="stopChronometer" />
 
@@ -43,18 +42,20 @@
         android:id="@+id/chronometer1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button1"
-        android:layout_alignBottom="@+id/button1"
+        android:layout_alignBaseline="@+id/timer_background"
+        android:layout_alignBottom="@+id/timer_background"
+        android:layout_marginBottom="70dp"
         android:layout_centerHorizontal="true"
         android:textSize="35sp" />
     
     <ImageView
-        android:id="@+id/imageview1"
+        android:id="@+id/spinner_background"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/button1"
-        android:src="@drawable/header_results_below"
+        android:layout_below="@+id/timer_background"
+        android:src="@drawable/box_small"
+        android:layout_marginTop="-6dp"
         android:contentDescription="@string/Week" />
 
     <Spinner
@@ -62,16 +63,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/button1"
+        android:layout_below="@+id/timer_background"
         android:layout_marginBottom="23dp" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/text_pause"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/button3"
+        android:layout_alignBottom="@+id/button_pause"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="18dp"
         android:text="@string/pause"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -79,7 +80,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/button1"
+        android:layout_alignTop="@+id/timer_background"
         android:layout_marginTop="14dp"
         android:layout_marginLeft="30dp"
         android:text="@string/blank"
@@ -90,8 +91,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView2"
-        android:layout_alignTop="@+id/button1"
+        android:layout_alignTop="@+id/timer_background"
         android:text="@string/currently_studying"
         android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/text_stop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/button_stop"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="18dp"
+        android:text="@string/Stop" 
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>
