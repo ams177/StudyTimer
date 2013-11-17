@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,23 +19,27 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
 	private Spinner spinner1; //its the spinner
 	private int selected_value;
 	public final static String EXTRA_MESSAGE = "1";
-
+	
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+	public void onResume()
+	    {  	    
+		super.onResume();
 		//This is the spinner
-		spinner1 = (Spinner) findViewById(R.id.spinner1);
+	    spinner1 = (Spinner) findViewById(R.id.spinner1);
 		
 		List<String> SpinnerArray =  new ArrayList<String>();
-		
+		//FileOutputStream fos;
 		try {
+		//	fos = openFileOutput("subject_file", Context.MODE_PRIVATE); //MODE_APPEND
+	    //	fos.close();
 			//Open file and display it to screen
 		    BufferedReader br = new BufferedReader(new InputStreamReader(openFileInput("subject_file")));
 		    String line;
 
 		    while ((line = br.readLine()) != null) {
 		    	SpinnerArray.add(line);
+		    	line = br.readLine();
+		    	line = br.readLine();
 		    }
 		    br.close();
 		}
@@ -51,6 +54,11 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
 		
 	    //Start the listener on the spinner
 		spinner1.setOnItemSelectedListener(this);
+	     }
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
 	}
 
 	@Override

@@ -37,7 +37,9 @@
         android:layout_marginLeft="9dp"
         android:layout_marginTop="30dp"
         android:contentDescription="@string/Icon"
-        android:src="@drawable/color_purple" />
+        android:src="@drawable/color_purple" 
+        android:onClick="changeColor"
+        android:tag="color_purple" />
     
     <ImageButton
         android:id="@+id/color2"
@@ -47,7 +49,9 @@
         android:layout_toRightOf="@+id/color1"
         android:layout_marginRight="3dp"
         android:contentDescription="@string/Icon"
-        android:src="@drawable/color_orange" />
+        android:src="@drawable/color_orange"
+        android:onClick="changeColor"
+        android:tag="color_orange" />
     
     <ImageButton
         android:id="@+id/color3"
@@ -57,7 +61,9 @@
         android:layout_toRightOf="@+id/color2"
         android:layout_marginRight="3dp"
         android:contentDescription="@string/Icon"
-        android:src="@drawable/color_green" />
+        android:src="@drawable/color_green" 
+        android:onClick="changeColor"
+        android:tag="color_green" />
     
     <ImageButton
         android:id="@+id/color4"
@@ -67,7 +73,9 @@
         android:layout_toRightOf="@+id/color3"
         android:layout_marginRight="3dp"
         android:contentDescription="@string/Icon"
-        android:src="@drawable/color_red" />
+        android:src="@drawable/color_red" 
+        android:onClick="changeColor"
+        android:tag="color_red" />
     
     <ImageButton
         android:id="@+id/color5"
@@ -77,7 +85,9 @@
         android:layout_toRightOf="@+id/color4"
         android:layout_marginRight="3dp"
         android:contentDescription="@string/Icon"
-        android:src="@drawable/color_blue" />
+        android:src="@drawable/color_blue" 
+        android:onClick="changeColor"
+        android:tag="color_blue" />
 
 
     <ImageView
@@ -92,17 +102,19 @@
     
     <ImageView
      	android:id="@+id/imageViewTextBox"
-     	android:src="@drawable/box_small"
+     	android:src="@drawable/box_short"
      	android:contentDescription="@string/Icon"
      	android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
+        android:layout_marginLeft="50dp"
         android:layout_centerHorizontal="true"
         android:layout_alignLeft="@+id/button1"
         android:layout_below="@+id/imageView1" />
      	    
     <ImageButton
         android:id="@+id/icon6"
+        style="?android:attr/borderlessButtonStyle"
         android:layout_width="49dp"
         android:layout_height="49dp"
         android:layout_alignLeft="@+id/button2"
@@ -111,94 +123,123 @@
         android:layout_marginLeft="9dp"
         android:layout_marginTop="8.5dp"
         android:contentDescription="@string/Icon"
-        android:src="@drawable/icon_book" />
+        android:src="@drawable/icon_book" 
+        android:onClick="changeIcon" 
+        android:tag="icon_book" />
     
      <ImageButton
         android:id="@+id/icon5"
+        style="?android:attr/borderlessButtonStyle"
         android:layout_width="49dp"
         android:layout_height="49dp"
         android:layout_alignTop="@+id/icon6"
         android:layout_toRightOf="@+id/icon6"
         android:layout_marginRight="3dp"
         android:contentDescription="@string/Icon"
-        android:src="@drawable/icon_guitar" />
+        android:src="@drawable/icon_guitar"
+        android:onClick="changeIcon" 
+        android:tag="icon_guitar" />
 
     <ImageButton
         android:id="@+id/icon4"
+        style="?android:attr/borderlessButtonStyle"
         android:layout_width="49dp"
         android:layout_height="49dp"
         android:layout_alignTop="@+id/icon6"
         android:layout_toRightOf="@+id/icon5"
         android:layout_marginRight="3dp"
         android:contentDescription="@string/Icon"
-        android:src="@drawable/icon_calculator" />
+        android:src="@drawable/icon_calculator" 
+        android:onClick="changeIcon" 
+        android:tag="icon_calculator" />
 
     <ImageButton
         android:id="@+id/icon2"
+        style="?android:attr/borderlessButtonStyle"
         android:layout_width="49dp"
         android:layout_height="49dp"
         android:layout_alignTop="@+id/icon6"
         android:layout_toRightOf="@+id/icon4"
         android:layout_marginRight="3dp"
         android:contentDescription="@string/Icon"
-        android:src="@drawable/icon_binoculars" />
+        android:src="@drawable/icon_binoculars" 
+        android:onClick="changeIcon" 
+        android:tag="icon_binoculars"  />
 
     <ImageButton
         android:id="@+id/icon1"
+        style="?android:attr/borderlessButtonStyle"
         android:layout_width="49dp"
         android:layout_height="49dp"
         android:layout_toRightOf="@+id/icon2"
         android:layout_alignTop="@+id/icon6"
         android:contentDescription="@string/Icon"
-        android:src="@drawable/icon_pencil" />
+        android:src="@drawable/icon_pencil"
+        android:onClick="changeIcon" 
+        android:tag="icon_pencil"  />
 
     <ImageButton
         android:id="@+id/icon7"
+        style="?android:attr/borderlessButtonStyle"
         android:layout_width="49dp"
         android:layout_height="49dp"
         android:layout_marginTop="3dp"
         android:layout_alignLeft="@+id/icon6"
         android:layout_below="@+id/icon6"
         android:contentDescription="@string/Icon"
-        android:src="@drawable/icon_compass" />
+        android:src="@drawable/icon_compass"
+        android:onClick="changeIcon" 
+        android:tag="icon_compass"  />
 
     <ImageButton
         android:id="@+id/icon11"
+        style="?android:attr/borderlessButtonStyle"
         android:layout_width="49dp"
         android:layout_height="49dp"
         android:layout_below="@+id/icon1"
         android:layout_toRightOf="@+id/icon4"
         android:layout_alignTop="@+id/icon7"
         android:contentDescription="@string/Icon"
-        android:src="@drawable/icon_parchment" />
+        android:src="@drawable/icon_parchment" 
+        android:onClick="changeIcon" 
+        android:tag="icon_parchment" />
 
     <ImageButton
         android:id="@+id/icon12"
+        style="?android:attr/borderlessButtonStyle"
         android:layout_width="49dp"
         android:layout_height="49dp"
         android:layout_alignRight="@+id/icon1"
         android:layout_alignTop="@+id/icon7"
         android:contentDescription="@string/Icon"
-        android:src="@drawable/icon_beaker" />
+        android:src="@drawable/icon_beaker"
+        android:onClick="changeIcon" 
+        android:tag="icon_beaker"  />
 
     <ImageButton
         android:id="@+id/icon10"
+        style="?android:attr/borderlessButtonStyle"
         android:layout_width="49dp"
         android:layout_height="49dp"
         android:layout_above="@+id/editText1"
         android:layout_alignLeft="@+id/icon4"
         android:layout_alignTop="@+id/icon7"
         android:contentDescription="@string/Icon"
-        android:src="@drawable/icon_apple" />
+        android:src="@drawable/icon_apple"
+        android:onClick="changeIcon" 
+        android:tag="icon_apple"  />
 
     <ImageButton
         android:id="@+id/icon8"
+        style="?android:attr/borderlessButtonStyle"
         android:layout_width="49dp"
         android:layout_height="49dp"
         android:layout_alignTop="@+id/icon7"
         android:layout_toRightOf="@+id/icon6"
         android:contentDescription="@string/Icon"
-        android:src="@drawable/icon_brush" />
+        android:src="@drawable/icon_brush" 
+        android:onClick="changeIcon" 
+        android:tag="icon_brush" />
 
     <ImageButton
         android:id="@+id/button4"
@@ -217,8 +258,10 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true" 
         android:layout_marginTop="27dp"
-        android:layout_width="260dp"
+        android:layout_width="215dp"
+        android:layout_marginLeft="5dp"
         android:layout_below="@+id/icon8"
+        android:layout_toRightOf="@+id/color_box"
         android:ems="10"
         android:hint="@string/SubjectName"
         android:inputType="textPersonName" >
@@ -247,5 +290,43 @@
         android:textSize="18sp"
         android:textStyle="bold"
         android:text="@string/Done" />
+
+    <ImageView
+        android:id="@+id/color_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imageView1"
+        android:layout_alignTop="@+id/imageViewTextBox"
+        android:contentDescription="@string/Week"
+        android:src="@drawable/color_purple" />
+
+    <ImageView
+        android:id="@+id/icon_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageViewTextBox"
+        android:layout_toLeftOf="@+id/editText1"
+        android:contentDescription="@string/Week"
+        android:src="@drawable/icon_book" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageViewTextBox"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/box_small" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imageView2"
+        android:layout_alignTop="@+id/imageView2"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="6dp"
+        android:textSize="12sp"
+        android:text="@string/infotext" />
 
 </RelativeLayout>

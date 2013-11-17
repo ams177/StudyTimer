@@ -35,6 +35,6 @@
     <string name="title_activity_create_new_subject">CreateNewSubject</string>
     <string name="pause">Pause</string>
     <string name="resume">Resume</string>
-
+	<string name="infotext">Select a color and an icon, type the name of the subject and press the \&apos;Add Subject\&apos; button.</string>
 
 </resources>

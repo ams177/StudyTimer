@@ -12,11 +12,16 @@ import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class CreateNewSubject extends Activity {
 	private TextView textview;
+	private ImageView color;
+	private ImageView icon;
+	private String newColor = "color_purple";
+	private String newIcon = "icon_book";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +30,8 @@ public class CreateNewSubject extends Activity {
 		// Show the Up button in the action bar.
 		setupActionBar();
 		textview = (TextView) findViewById(R.id.editText1);
+		color = (ImageView) findViewById(R.id.color_box);
+		icon = (ImageView) findViewById(R.id.icon_box);
 	}
 
 	/**
@@ -70,8 +77,12 @@ public class CreateNewSubject extends Activity {
 	     }
 	     FileOutputStream fos;
 	     try {
+	    	 newColor = newColor + '\n';
+	    	 newIcon = newIcon + '\n';
 	    	 fos = openFileOutput(FILENAME, Context.MODE_APPEND); //MODE_APPEND
 	    	 fos.write(string.getBytes());
+	    	 fos.write(newColor.getBytes());
+	    	 fos.write(newIcon.getBytes());
 	    	 fos.close();
 	     } catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
@@ -80,4 +91,18 @@ public class CreateNewSubject extends Activity {
 			Intent intent = new Intent(this, EditSubjects.class);
 			startActivity(intent);   
 	    }
+	 //this method changes the color icon depending on which is selected
+	 public void changeColor(View view) {
+		 newColor = view.getTag().toString();
+		 color.setImageResource(getImageId(this, newColor));
+	 }
+	 //this method changes the icon picture depending on which is selected
+	 public void changeIcon(View view) {
+		 newIcon = view.getTag().toString();
+		 icon.setImageResource(getImageId(this, newIcon));
+	 }
+	 //helper method to return resource id for changeColor and changeId
+	 public static int getImageId(Context context, String imageName) {
+		return context.getResources().getIdentifier("drawable/" + imageName, null, context.getPackageName());
+	 }
 }

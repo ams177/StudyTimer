@@ -53,6 +53,8 @@ public class TimerPage extends Activity implements OnItemSelectedListener{
 
 		    while ((line = br.readLine()) != null) {
 		    	SpinnerArray.add(line);
+		    	line = br.readLine();  //flush out the icon
+		    	line = br.readLine();  //flush out the color
 		    }
 		    br.close();
 		}
