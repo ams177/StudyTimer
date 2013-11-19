@@ -87,11 +87,11 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/iconbox1"
         android:layout_toRightOf="@+id/iconbox1"
-        android:visibility="invisible"
-        android:text="TextView" />
+        android:visibility="invisible" />
     
     <ImageButton
         android:id="@+id/delete1"
+        android:contentDescription="@string/Week"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_alignTop="@+id/iconbox1"
@@ -129,11 +129,11 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/iconbox2"
         android:layout_toRightOf="@+id/iconbox2"
-        android:visibility="invisible"
-        android:text="TextView" />
+        android:visibility="invisible" />
     
     <ImageButton
         android:id="@+id/delete2"
+        android:contentDescription="@string/Week"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_alignTop="@+id/iconbox2"
@@ -171,11 +171,11 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/iconbox3"
         android:layout_toRightOf="@+id/iconbox3"
-        android:visibility="invisible"
-        android:text="TextView" />
+        android:visibility="invisible" />
     
     <ImageButton
         android:id="@+id/delete3"
+        android:contentDescription="@string/Week"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_alignTop="@+id/iconbox3"
@@ -213,11 +213,11 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/iconbox4"
         android:layout_toRightOf="@+id/iconbox4"
-        android:visibility="invisible"
-        android:text="TextView" />
+        android:visibility="invisible" />
     
     <ImageButton
         android:id="@+id/delete4"
+        android:contentDescription="@string/Week"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_alignTop="@+id/iconbox4"
@@ -255,11 +255,11 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/iconbox5"
         android:layout_toRightOf="@+id/iconbox5"
-        android:visibility="invisible"
-        android:text="TextView" />
+        android:visibility="invisible" />
     
     <ImageButton
         android:id="@+id/delete5"
+        android:contentDescription="@string/Week"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_alignTop="@+id/iconbox5"

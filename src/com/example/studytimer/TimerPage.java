@@ -25,6 +25,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Chronometer;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class TimerPage extends Activity implements OnItemSelectedListener{
 	
@@ -131,19 +132,7 @@ public class TimerPage extends Activity implements OnItemSelectedListener{
     public void stopChronometer(View view) throws IOException {
         timer.stop();
         timer_running = false;
-        
-        String FILENAME = "data_file";
-        String string = Long.toString((SystemClock.elapsedRealtime() - timer.getBase())/1000)+","+textView.getText()+","+System.currentTimeMillis()+"\n";
-        
-        FileOutputStream fos;
-		try {
-			fos = openFileOutput(FILENAME, Context.MODE_APPEND); //MODE_APPEND
-			fos.write(string.getBytes());
-			fos.close();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+        saveData();
 		Intent intent = new Intent(this, MainActivity.class);
 		startActivity(intent);
         
@@ -153,7 +142,7 @@ public class TimerPage extends Activity implements OnItemSelectedListener{
     public void pauseChronometer(View view) {
     	if (timer_running) {
     		time_elapsed = SystemClock.elapsedRealtime() - timer.getBase();
-            ((Chronometer) findViewById(R.id.chronometer1)).stop();
+            timer.stop();
             timer_running = false;
             TextView buttonText = (TextView) findViewById(R.id.text_pause);
             buttonText.setText("Resume");
@@ -168,15 +157,47 @@ public class TimerPage extends Activity implements OnItemSelectedListener{
   
     @Override
     // Changes text based on spinner selection
-    public void onItemSelected(AdapterView<?> parent, View view, 
-            int pos, long id) {
+    public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
     	String value = (String) parent.getItemAtPosition(pos);
-        textView.setText(value);    
-        timer.start();
+    	if ((textView.getText()==value) || (((SystemClock.elapsedRealtime() - timer.getBase())/1000) <= 1) ) { //do nothing cause the item selected didnt change.
+    		timer.start();
+    		textView.setText(value); 
+    	} else {	//item selected changed, need to save time and restart timer
+    		try {
+    			saveData();
+    		} catch (IOException e) {
+    			// handle error
+    		}
+    		//get data read for the pop up
+    	    String studyTime = Long.toString((SystemClock.elapsedRealtime() - timer.getBase())/1000);
+    	    String congrats = "You studied "+textView.getText()+" for "+studyTime+" seconds";
+    	    Toast.makeText(this, congrats, Toast.LENGTH_SHORT).show();
+    	    //reset timer and update textView
+    	    textView.setText(value);
+    	    timer.setBase(SystemClock.elapsedRealtime());
+    		time_elapsed = 0;
+    	    timer.start();
+    	}
+       
     }
     @Override
     public void onNothingSelected(AdapterView<?> arg0) {
   	// TODO Auto-generated method stub
     }
     
+    //this method saves the time studied in seconds, the subject name and a timestamp to a file 
+    private void saveData( ) throws IOException {
+    	String FILENAME = "data_file";
+        String string = Long.toString((SystemClock.elapsedRealtime() - timer.getBase())/1000)+","+textView.getText()+","+System.currentTimeMillis()+"\n";
+        
+        FileOutputStream fos;
+		try {
+			fos = openFileOutput(FILENAME, Context.MODE_APPEND); //MODE_APPEND
+			fos.write(string.getBytes());
+			fos.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
 }

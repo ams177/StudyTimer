@@ -316,6 +316,7 @@
         android:layout_below="@+id/imageViewTextBox"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
+        android:contentDescription="@string/Week"
         android:src="@drawable/box_small" />
 
     <TextView
