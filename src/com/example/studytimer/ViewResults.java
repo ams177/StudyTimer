@@ -3,12 +3,14 @@ package com.example.studytimer;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import android.os.Bundle;
+import java.util.ArrayList;
+
 import android.app.Activity;
+import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
-import android.support.v4.app.NavUtils;
 
 public class ViewResults extends Activity {
 
@@ -24,6 +26,8 @@ public class ViewResults extends Activity {
 	private void readFile() {
 		// TODO Auto-generated method stub
 		StringBuilder text = new StringBuilder();
+		ArrayList<String> list = new ArrayList<String>();
+		int count = 0;
 		
 		try {
 			//Open file and display it to screen
@@ -33,13 +37,16 @@ public class ViewResults extends Activity {
 		    while ((line = br.readLine()) != null) {
 		        text.append(line);
 		        text.append('\n');
+		        list.add(line);
+		        count++;
 		    }
 		    br.close();
+		    String[] myStringArray = list.toArray(new String[list.size()]);
 		}
 		catch (IOException e) {
 		    //You'll need to add proper error handling here
 		}
-
+		
 		//Find the view by its id
 		TextView tv = (TextView)findViewById(R.id.textView2);
 

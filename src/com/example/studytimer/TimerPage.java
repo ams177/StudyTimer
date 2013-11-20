@@ -169,8 +169,9 @@ public class TimerPage extends Activity implements OnItemSelectedListener{
     			// handle error
     		}
     		//get data read for the pop up
-    	    String studyTime = Long.toString((SystemClock.elapsedRealtime() - timer.getBase())/1000);
-    	    String congrats = "You studied "+textView.getText()+" for "+studyTime+" seconds";
+    	    long l_time = (SystemClock.elapsedRealtime() - timer.getBase())/1000;
+    	    String studyTime = computeTime(l_time);
+    	    String congrats = "You studied "+textView.getText()+" for "+studyTime;
     	    Toast.makeText(this, congrats, Toast.LENGTH_SHORT).show();
     	    //reset timer and update textView
     	    textView.setText(value);
@@ -179,6 +180,25 @@ public class TimerPage extends Activity implements OnItemSelectedListener{
     	    timer.start();
     	}
        
+    }
+    private String computeTime(long l_time){
+    	String studyTime = " ";
+    	long hours, mins, secs;
+    	
+    	if (l_time > 3600) {
+    		hours = l_time / 3600;
+    		l_time = l_time % 3600;
+    		mins = l_time / 60;
+    		secs = l_time % 60;
+    		studyTime = Long.toString(hours) + " hour " + Long.toString(mins) + " minutes and " + Long.toString(secs) + " seconds.";
+    	} else if (l_time > 60 ){
+    		mins = l_time / 60;
+    		secs = l_time % 60;
+    		studyTime = Long.toString(mins) + " minutes and " + Long.toString(secs) + " seconds.";
+    	} else {
+    		studyTime =  Long.toString(l_time) + " seconds.";
+    	}
+    	return studyTime;
     }
     @Override
     public void onNothingSelected(AdapterView<?> arg0) {
