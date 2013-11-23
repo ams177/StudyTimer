@@ -88,7 +88,6 @@ public class TimerPage extends Activity implements OnItemSelectedListener{
 		Bundle extras = intent.getExtras();
 		message = extras.getInt("selected");
 		spinner1.setSelection(message, false);
-
 	}
 
 	/**
@@ -181,6 +180,7 @@ public class TimerPage extends Activity implements OnItemSelectedListener{
     	}
        
     }
+    //this method takes the time studied in seconds and returns it formatted in hours, minutes and seconds
     private String computeTime(long l_time){
     	String studyTime = " ";
     	long hours, mins, secs;
@@ -190,13 +190,25 @@ public class TimerPage extends Activity implements OnItemSelectedListener{
     		l_time = l_time % 3600;
     		mins = l_time / 60;
     		secs = l_time % 60;
-    		studyTime = Long.toString(hours) + " hour " + Long.toString(mins) + " minutes and " + Long.toString(secs) + " seconds.";
+    		if (hours > 1) {
+    			studyTime = Long.toString(hours) + " hours " + Long.toString(mins) + " minutes and " + Long.toString(secs) + " seconds";
+    		} else {
+    			studyTime = Long.toString(hours) + " hour " + Long.toString(mins) + " minutes and " + Long.toString(secs) + " seconds";
+    		}
     	} else if (l_time > 60 ){
     		mins = l_time / 60;
     		secs = l_time % 60;
-    		studyTime = Long.toString(mins) + " minutes and " + Long.toString(secs) + " seconds.";
+    		if (mins > 1) {
+    			studyTime = Long.toString(mins) + " minutes and " + Long.toString(secs) + " seconds";
+    		} else {
+    			studyTime = Long.toString(mins) + " minute and " + Long.toString(secs) + " seconds";
+    		}
     	} else {
-    		studyTime =  Long.toString(l_time) + " seconds.";
+    		if (l_time > 1) {
+    			studyTime =  Long.toString(l_time) + " seconds";
+    		} else {
+    			studyTime =  Long.toString(l_time) + " second";
+    		}
     	}
     	return studyTime;
     }
@@ -208,12 +220,15 @@ public class TimerPage extends Activity implements OnItemSelectedListener{
     //this method saves the time studied in seconds, the subject name and a timestamp to a file 
     private void saveData( ) throws IOException {
     	String FILENAME = "data_file";
-        String string = Long.toString((SystemClock.elapsedRealtime() - timer.getBase())/1000)+","+textView.getText()+","+System.currentTimeMillis()+"\n";
-        
+        String stringT = Long.toString((SystemClock.elapsedRealtime() - timer.getBase())/1000)+"\n";
+        String stringS = textView.getText().toString()+"\n";
+        String stringD = Long.toString(System.currentTimeMillis())+"\n";
         FileOutputStream fos;
 		try {
 			fos = openFileOutput(FILENAME, Context.MODE_APPEND); //MODE_APPEND
-			fos.write(string.getBytes());
+			fos.write(stringS.getBytes());
+			fos.write(stringT.getBytes());
+			fos.write(stringD.getBytes());
 			fos.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

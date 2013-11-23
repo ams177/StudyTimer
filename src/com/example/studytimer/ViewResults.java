@@ -4,13 +4,13 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
+import android.widget.ListView;
+
 
 public class ViewResults extends Activity {
 
@@ -20,39 +20,63 @@ public class ViewResults extends Activity {
 		setContentView(R.layout.activity_view_results);
 		// Show the Up button in the action bar.
 		setupActionBar();
-		readFile();
+ 
+        //pass context and data to the custom adapter
+        MyArrayAdapter adapter = new MyArrayAdapter(this, generateData());
+ 
+        // Get ListView from view
+        ListView listView = (ListView) findViewById(R.id.listView1);
+ 
+        // setListAdapter
+        listView.setAdapter(adapter); 
 	}
-
-	private void readFile() {
-		// TODO Auto-generated method stub
-		StringBuilder text = new StringBuilder();
-		ArrayList<String> list = new ArrayList<String>();
-		int count = 0;
-		
-		try {
+	
+	private ArrayList<Model> generateData(){
+		ArrayList<Subjects> subjects = new ArrayList<Subjects>();
+        ArrayList<Model> models = new ArrayList<Model>();
+        String color = " ", icon = " ", title = " ", time = " ";
+   
+        try {
 			//Open file and display it to screen
-		    BufferedReader br = new BufferedReader(new InputStreamReader(openFileInput("data_file")));
+		    BufferedReader br = new BufferedReader(new InputStreamReader(openFileInput("subject_file")));
 		    String line;
-
-		    while ((line = br.readLine()) != null) {
-		        text.append(line);
-		        text.append('\n');
-		        list.add(line);
-		        count++;
+		    
+		    while ((line = br.readLine()) != null ) {
+		    	title = line;
+		    	color = br.readLine();
+		    	icon = br.readLine();
+		    	subjects.add(new Subjects(color, icon, title));
 		    }
 		    br.close();
-		    String[] myStringArray = list.toArray(new String[list.size()]);
 		}
 		catch (IOException e) {
 		    //You'll need to add proper error handling here
 		}
-		
-		//Find the view by its id
-		TextView tv = (TextView)findViewById(R.id.textView2);
-
-		//Set the text
-		tv.setText(text);
-	}
+        try {
+			//Open file and display it to screen
+		    BufferedReader br = new BufferedReader(new InputStreamReader(openFileInput("data_file")));
+		    String line;
+		    
+		    while ((line = br.readLine()) != null ) {
+		    	title = line;
+		    	time = br.readLine();
+		    	br.readLine(); // flush time stamp
+		    	for (int i = 0; i < subjects.size(); i++) {
+		    		String item = subjects.get(i).getTitle();
+		    		if (item.equals(title) ) {
+		    			color = subjects.get(i).getColor();
+		    			icon = subjects.get(i).getIcon();
+		    		}
+		    	}
+		    	models.add(new Model(color, icon, title, time));
+		    }
+		    br.close();
+		}
+		catch (IOException e) {
+		    //You'll need to add proper error handling here
+		} 
+        return models;
+    }
 
 	/**
 	 * Set up the {@link android.app.ActionBar}.

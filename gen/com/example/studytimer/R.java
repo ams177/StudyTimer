@@ -49,28 +49,31 @@ public final class R {
         public static final int icon_pencil=0x7f020019;
     }
     public static final class id {
-        public static final int action_settings=0x7f08003e;
+        public static final int action_settings=0x7f080043;
         public static final int button1=0x7f080000;
         public static final int button2=0x7f080001;
         public static final int button3=0x7f080034;
         public static final int button4=0x7f080014;
         public static final int button_edit=0x7f080030;
-        public static final int button_pause=0x7f080038;
+        public static final int button_pause=0x7f08003d;
         public static final int button_results=0x7f080031;
-        public static final int button_stop=0x7f080039;
-        public static final int chronometer1=0x7f08003a;
+        public static final int button_stop=0x7f08003e;
+        public static final int chronometer1=0x7f08003f;
+        public static final int color=0x7f080038;
         public static final int color1=0x7f080002;
         public static final int color2=0x7f080003;
         public static final int color3=0x7f080004;
         public static final int color4=0x7f080005;
         public static final int color5=0x7f080006;
         public static final int color_box=0x7f080015;
+        public static final int counter=0x7f08003b;
         public static final int delete1=0x7f08001f;
         public static final int delete2=0x7f080023;
         public static final int delete3=0x7f080027;
         public static final int delete4=0x7f08002b;
         public static final int delete5=0x7f08002f;
         public static final int editText1=0x7f080012;
+        public static final int icon=0x7f080039;
         public static final int icon1=0x7f08000d;
         public static final int icon10=0x7f080011;
         public static final int icon11=0x7f08000f;
@@ -97,8 +100,10 @@ public final class R {
         public static final int imageView1=0x7f080007;
         public static final int imageView2=0x7f080019;
         public static final int imageViewTextBox=0x7f080008;
+        public static final int label=0x7f08003a;
+        public static final int listView1=0x7f080037;
         public static final int spinner1=0x7f080032;
-        public static final int spinner_background=0x7f08003b;
+        public static final int spinner_background=0x7f080040;
         public static final int text1=0x7f08001e;
         public static final int text2=0x7f080022;
         public static final int text3=0x7f080026;
@@ -109,9 +114,9 @@ public final class R {
         public static final int textView3=0x7f08001b;
         public static final int text_add_subject=0x7f080017;
         public static final int text_edit=0x7f080033;
-        public static final int text_pause=0x7f08003c;
-        public static final int text_stop=0x7f08003d;
-        public static final int timer_background=0x7f080037;
+        public static final int text_pause=0x7f080041;
+        public static final int text_stop=0x7f080042;
+        public static final int timer_background=0x7f08003c;
     }
     public static final class layout {
         public static final int activity_create_new_subject=0x7f030000;
@@ -119,7 +124,9 @@ public final class R {
         public static final int activity_main=0x7f030002;
         public static final int activity_test=0x7f030003;
         public static final int activity_view_results=0x7f030004;
-        public static final int timer_page=0x7f030005;
+        public static final int row_layout=0x7f030005;
+        public static final int target_item=0x7f030006;
+        public static final int timer_page=0x7f030007;
     }
     public static final class menu {
         public static final int create_new_subject=0x7f070000;

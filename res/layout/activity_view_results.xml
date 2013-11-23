@@ -75,7 +75,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="14dp"
         android:textSize="12sp"
-        android:text="@string/Week" />
+        android:visibility="invisible"
+        android:text="@+id/textView2" />
 
     <TextView
         android:id="@+id/textView3"
@@ -87,5 +88,15 @@
         android:textSize="18sp"
         android:textStyle="bold"
         android:text="@string/Results" />
+
+    <ListView
+        android:id="@+id/listView1"
+        android:layout_width="265dp"
+        android:layout_height="330dp"
+        android:layout_alignLeft="@+id/button3"
+        android:layout_below="@+id/textView2"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="-20dp"	 >
+    </ListView>
 
 </RelativeLayout>
