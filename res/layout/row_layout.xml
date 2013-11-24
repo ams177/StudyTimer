@@ -1,27 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content" >
 
     <ImageView
         android:id="@+id/color"
-        android:layout_width="22dp"
-        android:layout_height="22dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_marginLeft="4dp"
-        android:layout_marginRight="-23dp"
+        android:layout_marginRight="-30dp"
         android:layout_marginTop="2dp"
-        android:layout_marginBottom="2dp"
+        android:layout_marginBottom="4dp"
+        android:paddingBottom="4dp"
         android:contentDescription="@string/Week"
         android:src="@drawable/color_red" >
     </ImageView>
     
     <ImageView
         android:id="@+id/icon"
-        android:layout_width="22dp"
-        android:layout_height="22dp"
-        android:layout_marginRight="10dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="4dp"
         android:layout_marginTop="2dp"
-		android:layout_marginBottom="2dp"
+		android:layout_marginBottom="4dp"
+		android:paddingBottom="4dp"
         android:contentDescription="@string/Week"
         android:src="@drawable/icon_pencil" >
     </ImageView>
@@ -30,8 +32,25 @@
         android:id="@+id/label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/icon"
+        android:layout_marginLeft="5dp"
         android:text="@+id/label"
-        android:textSize="16sp" >
-    </TextView>
+        android:layout_marginTop="5dp"
+        android:textSize="16sp" />
 
-</LinearLayout> 
+    <ImageButton
+        android:id="@+id/delete"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:layout_alignParentRight="true"
+        android:onClick="deleteItem"
+        android:tag="4"
+        android:background="@null"
+        android:contentDescription="@+id/delete"
+        android:src="@drawable/button_delete" />
+
+</RelativeLayout> 
