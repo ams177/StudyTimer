@@ -6,7 +6,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
@@ -89,8 +91,34 @@ public class EditSubjects extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	public void deleteItem(View view) {
-		String itemToDelete = view.getTag().toString();
+	//This method is called by the delete button, it pops up the confirmation
+	public void deleteItem(final View view) {
+		AlertDialog.Builder builder = new AlertDialog.Builder(EditSubjects.this);
+        builder.setTitle("Warning");
+        builder.setMessage("Deleting the Subject will clear all the time data associated with that Subject");
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface arg0, int arg1) {
+                // TODO Auto-generated method stub
+            	String itemToDelete = view.getTag().toString();
+                actuallyDeleteItems(itemToDelete);
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface arg0, int arg1) {
+                // TODO Auto-generated method stub
+            }
+        });
+
+        builder.show(); //To show the AlertDialog
+	}
+	
+	//This method deletes the subject from subject_file and then calls deleteData 
+	private void actuallyDeleteItems(String itemToDelete) {    
+		
 		String itemName = "";
 		int count = 1;
 		int itemNum = 0;  //This is the number of the subject to delete
@@ -152,6 +180,8 @@ public class EditSubjects extends Activity {
 	    Intent intent = new Intent(this, EditSubjects.class);
 		startActivity(intent);
 	}
+	
+	//this method deletes the time data that was associated with the deleted subject
 	private void deleteData(String itemName) {
 		String FILENAME = "temp_file";
         String line;
@@ -188,11 +218,9 @@ public class EditSubjects extends Activity {
 	    	while ((line = br.readLine()) != null) {
 	    		line = line+'\n';
 	    		fos.write(line.getBytes());
-	    		line = br.readLine();
-	    		line = line+'\n';
+	    		line = br.readLine()+'\n';
 	    		fos.write(line.getBytes());
-	    		line = br.readLine();
-	    		line = line+'\n';
+	    		line = br.readLine()+'\n';
 	    		fos.write(line.getBytes());
 	    	}
 	    	fos.close();
@@ -206,10 +234,11 @@ public class EditSubjects extends Activity {
 		Intent intent = new Intent(this, CreateNewSubject.class);
 		startActivity(intent);
 	}
-	public static int getImageId(Context context, String imageName) {
+	/* These are no longer used but they can still be useful so saving them here
+	private static int getImageId(Context context, String imageName) {
 		return context.getResources().getIdentifier("drawable/" + imageName, null, context.getPackageName());
 	}
-	public static int getResourceId(Context context, String imageName) {
+	private static int getResourceId(Context context, String imageName) {
 		return context.getResources().getIdentifier("@+id/" + imageName, null, context.getPackageName());
-	}
+	} */
 }

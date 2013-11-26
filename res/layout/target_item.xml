@@ -45,6 +45,7 @@
         android:layout_below="@+id/label"
         android:layout_toRightOf="@+id/icon"
         android:layout_marginTop="-3dp"
+        android:textStyle="bold"
         android:text="@string/timeStudied"
         android:textSize="12sp" />
 	
@@ -55,6 +56,8 @@
         android:layout_below="@+id/label"
         android:layout_toRightOf="@+id/timeStudied"
         android:layout_marginTop="-3dp"
+        android:layout_marginLeft="2dp"
+        android:textStyle="bold"
         android:text="@+id/counter"
         android:textSize="12sp" />
 
