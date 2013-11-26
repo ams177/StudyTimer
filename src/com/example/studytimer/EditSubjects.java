@@ -91,6 +91,7 @@ public class EditSubjects extends Activity {
 	}
 	public void deleteItem(View view) {
 		String itemToDelete = view.getTag().toString();
+		String itemName = "";
 		int count = 1;
 		int itemNum = 0;  //This is the number of the subject to delete
 		try {
@@ -106,6 +107,7 @@ public class EditSubjects extends Activity {
 	    	fos = openFileOutput(FILENAME, Context.MODE_PRIVATE); //MODE_APPEND
 	    	while ((line = br.readLine()) != null) {
 	    		if (count == itemNum) {
+	    			itemName = line; // this should be the name of the subject to delete
 	    			line = br.readLine();
 	    			line = br.readLine();
 	    		} else {
@@ -121,6 +123,7 @@ public class EditSubjects extends Activity {
 	    		count++;
 	    	}
 	    	fos.close();
+	    	br.close();
 	    } catch (IOException e) {
 		    //You'll need to add proper error handling here
 		}
@@ -140,15 +143,65 @@ public class EditSubjects extends Activity {
 	    		fos.write(line.getBytes());
 	    	}
 	    	fos.close();
+	    	br.close();
 	    } catch (IOException e) {
 		    //You'll need to add proper error handling here
 		}
+	    deleteData(itemName);
+	    
 	    Intent intent = new Intent(this, EditSubjects.class);
 		startActivity(intent);
 	}
-	public void turnInvisible() {
-		
+	private void deleteData(String itemName) {
+		String FILENAME = "temp_file";
+        String line;
+        FileOutputStream fos;
+		// this makes a temp_file with all of subject_file except the one to delete
+	    try {
+	    	BufferedReader br = new BufferedReader(new InputStreamReader(openFileInput("data_file")));
+	    	fos = openFileOutput(FILENAME, Context.MODE_PRIVATE); //MODE_APPEND
+	    	while ((line = br.readLine()) != null) {
+	    		if (itemName.equals(line)) {
+	    			line = br.readLine();
+	    			line = br.readLine();
+	    		} else {
+	    			line = line+'\n';
+	    			fos.write(line.getBytes());
+	    			line = br.readLine();
+	    			line = line+'\n';
+	    			fos.write(line.getBytes());
+	    			line = br.readLine();
+	    			line = line+'\n';
+	    			fos.write(line.getBytes());
+	    		}
+	    	}
+	    	fos.close();
+	    	br.close();
+	    } catch (IOException e) {
+		    //You'll need to add proper error handling here
+		}
+	    
+	    FILENAME = "data_file";
+	    try {
+	    	BufferedReader br = new BufferedReader(new InputStreamReader(openFileInput("temp_file")));
+	    	fos = openFileOutput(FILENAME, Context.MODE_PRIVATE); //MODE_APPEND
+	    	while ((line = br.readLine()) != null) {
+	    		line = line+'\n';
+	    		fos.write(line.getBytes());
+	    		line = br.readLine();
+	    		line = line+'\n';
+	    		fos.write(line.getBytes());
+	    		line = br.readLine();
+	    		line = line+'\n';
+	    		fos.write(line.getBytes());
+	    	}
+	    	fos.close();
+	    	br.close();
+	    } catch (IOException e) {
+		    //You'll need to add proper error handling here
+		}
 	}
+	
 	public void createNewSubject(View view) {
 		Intent intent = new Intent(this, CreateNewSubject.class);
 		startActivity(intent);

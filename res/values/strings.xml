@@ -18,6 +18,7 @@
     <!-- Results -->
     <string name="Week">This Week</string>
     <string name="Results">Results</string>
+    <string name="timeStudied">Time Studied: </string>
 
     <!-- EditSubjects -->
     <string name="CreateNewSubject">Create New Subject</string>

@@ -82,7 +82,7 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/timer_background"
         android:layout_marginTop="14dp"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="32dp"
         android:text="@string/blank"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -90,6 +90,8 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="3dp"
         android:layout_alignLeft="@+id/textView2"
         android:layout_alignTop="@+id/timer_background"
         android:text="@string/currently_studying"
