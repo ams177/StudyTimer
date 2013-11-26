@@ -50,7 +50,7 @@ public class MyArrayAdapter extends ArrayAdapter<Model> {
             //imgView2.setImageResource(modelsArrayList.get(position).getIcon());
             //iv.setImageResource(getImageId(this, line));
             titleView.setText(modelsArrayList.get(position).getTitle());
-            counterView.setText(modelsArrayList.get(position).getCounter());
+            counterView.setText(modelsArrayList.get(position).getFormattedTime());
             
  
             // 5. retrn rowView

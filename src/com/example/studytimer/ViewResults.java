@@ -34,7 +34,11 @@ public class ViewResults extends Activity {
 	private ArrayList<Model> generateData(){
 		ArrayList<Subjects> subjects = new ArrayList<Subjects>();
         ArrayList<Model> models = new ArrayList<Model>();
+        ArrayList<Model> totals = new ArrayList<Model>();
+        int intTime = 0, intTotalTime = 0;
         String color = " ", icon = " ", title = " ", time = " ";
+        String totalsTime = "0";
+        boolean found = false;
    
         try {
 			//Open file and display it to screen
@@ -75,7 +79,37 @@ public class ViewResults extends Activity {
 		catch (IOException e) {
 		    //You'll need to add proper error handling here
 		} 
-        return models;
+        totals.add(new Model(models.get(0).getColor(), models.get(0).getIcon(), 
+        		models.get(0).getTitle(), models.get(0).getCounter() ));
+        for (int i = 1; i < models.size(); i++) {
+        	found = false;
+        	title = models.get(i).getTitle();
+        	time = models.get(i).getCounter();
+        	try {
+        	    intTime = Integer.parseInt(time);
+        	} catch(NumberFormatException nfe) {
+        		//handle(error)
+        	}
+        	for(int j = 0; j < totals.size(); j++) {
+        		String totalTitle = totals.get(j).getTitle();
+        		if (totalTitle.equals(title)) 	{
+        			totalsTime = totals.get(j).getCounter();
+        			try {
+                	    intTotalTime = Integer.parseInt(totalsTime);
+                	} catch(NumberFormatException nfe) {
+                		//handle(error)
+                	}
+            		intTime = intTime + intTotalTime;
+            		totals.get(j).setCounter(String.valueOf(intTime));
+            		found = true;
+        		}
+        	}
+        	if (found == false) {
+        		totals.add(new Model(models.get(i).getColor(), models.get(i).getIcon(), 
+                		models.get(i).getTitle(), models.get(i).getCounter() ));
+        	}
+        }
+        return totals;//models
     }
 
 	/**
